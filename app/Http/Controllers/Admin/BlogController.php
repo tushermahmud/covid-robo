@@ -22,7 +22,6 @@ class BlogController extends Controller
      */
     public function index(Request $request)
     {
-
         $onlyTrashed=null;
         if($request->get('status')&&$request->get('status')=='trash'){
             $posts=Blog::onlyTrashed()->orderBy('created_at','desc')->paginate(5);

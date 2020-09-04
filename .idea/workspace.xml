@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7ba9c5fa-0de0-4d36-a447-fb3ef6d0fb66" name="Default Changelist" comment="" />
+    <list default="true" id="7ba9c5fa-0de0-4d36-a447-fb3ef6d0fb66" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/resources/views/SubscriptionPlan.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/BlogController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/BlogController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_06_170140_create_comments_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_06_170140_create_comments_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_07_084154_create_admin_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_07_084154_create_admin_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_07_112037_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_07_112037_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_07_112638_create_blog_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_07_112638_create_blog_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_07_222951_create_replies_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_07_222951_create_replies_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_05_10_031704_create_order_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_05_10_031704_create_order_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_02_135746_create_plasma_donar_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_02_135746_create_plasma_donar_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_09_02_143719_create_recipents_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_09_02_143719_create_recipents_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/plasma.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/plasma.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/plasmaNeed.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/plasmaNeed.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,6 +26,9 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration">
     <include_path>
@@ -150,7 +169,8 @@
       <workItem from="1599046944416" duration="1936000" />
       <workItem from="1599053550723" duration="13271000" />
       <workItem from="1599069685355" duration="2386000" />
-      <workItem from="1599156952177" duration="2265000" />
+      <workItem from="1599156952177" duration="3629000" />
+      <workItem from="1599241823422" duration="5279000" />
     </task>
     <servers />
   </component>

@@ -17,6 +17,11 @@
     <!---------favicon--------------->
     <link rel="icon" type="image/png" href="{{asset('frontend/assets/image/favicon.png')}}" sizes="16x16">
     <!---------favicon--------------->
+    <style>
+        .help-block{
+            color:red;
+        }
+    </style>
 </head>
 <body class="home_page_two">
 <div class="page_wapper">
@@ -120,7 +125,6 @@
                             <li class="nav-item nav_item">
                                 <a class="nav-link link_hd" href="{{route('entertainment')}}">  Entertainment  </a>
                             </li>
-
                             <li class="nav-item nav_item dropdown">
                                 <a class="nav-link link_hd" href="#">  <i class="fa fa-user"></i>  </a>
                                 <ul class="navbar-nav submenu">
@@ -138,13 +142,11 @@
                                 </ul>
                             </li>
                             <li class="nav-item nav_item"><a class="nav-link link_hd" href="{{route('contact')}}">Contact</a></li>
-                            <li class="nav-item nav_item"><a class="nav-link link_hd" href="{{route('transaction')}}">Donations</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
-
     </header>
     <!--Header-->
     <!------main-content------>
@@ -156,69 +158,40 @@
                         <div class="content_box">
                             <ul class="bread_crumb text-center">
                                 <li class="bread_crumb-item"><a href="#">Home</a></li>
-                                <li class="bread_crumb-item active"> Plasma Donation for Covid-19</li>
+                                <li class="bread_crumb-item active"> Subscription</li>
                             </ul>
-                            <h1>Please Donate Plasma</h1>
+                            <h1>Please Subscribe First</h1>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
-        <section class="about type_one">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="heading icon_dark tp_one">
-                            <h6>Available Plasma</h6>
-                            <span class="flaticon-virus icon"></span>
-                        </div>
-                        <div class="about_content">
-                            <a href="{{route('plasma.create')}}" class="btn btn-info" style="margin:30px 0px">I want to donate Plasma</a>
-                            <a href="{{route('plasma.recipent.create')}}" class="btn btn-info" style="margin:30px 0px">I Need Plasma</a>
-                            @if(session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{session('status')}}
+        <section class="contact_form type_one " >
+            <div class="container ">
+                <div class="row ">
+                    <div class="col-lg-12 col-md-12 col-12 text-center">
+                        <form action="{{route('subscription.store')}}" method="post">
+                            {{ csrf_field()}}
+                            <div>
+                                <input type="radio" name="user_type" value="1" class="" checked>
+                                <label for="Plan1">Subscribe For 1 Month. 300 taka Only</label>
                             </div>
-                            @endif
-                            <h3>See If the Plasma is Available. If the Plasma is available and if you want it then send 200 taka to the number given below. This is a very reasonable price for everyone and we will build the communication with donars early</h3>
-                            <h4>NB:Please Send Money in This Number. If Someone Tell You To send To another Number then he is a fraud. The number is given bellow (01795355849)</h4>
-
-                            <table class="table table-striped">
-                                <thead>
-                                    <tr>
-                                        <th scope="col">name</th>
-                                        <th scope="col">Blood Group</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        @foreach($donars as $donar)
-                                            <td>
-                                                {{$donar->plasma_donar_name}}
-                                            </td>
-                                            <td>
-                                                {{$donar->donar_blood_group}}
-                                            </td>
-                                            @if($donar->status==0)
-                                            <td>
-                                                <span class="alert alert-success">Available</span>
-                                            </td>
-                                            @elseif($donar->status==1)
-                                                <td>
-                                                    <span class="alert alert-danger">Not Available</span>
-                                                </td>
-                                            @endif
-                                        @endforeach
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
+                            <div>
+                                <input type="radio" name="user_type" value="2">
+                                <label for="Plan1">Subscribe For 2 Month. 500 taka only</label>
+                            </div>
+                            <div>
+                                <input type="radio" name="user_type" value="3">
+                                <label for="Plan1">Subscribe For 3 Month.700 taka Only</label>
+                            </div>
+                            <div>
+                                <input style="margin-bottom: 30px" type="submit" class="btn btn-info" value="Select A Plan">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="footer type_three">
             <div class="container">
                 <div class="row">
@@ -329,17 +302,102 @@
         <button class="navbar-toggler toggler-spring mobile-toggler"><span class="fa fa-close "></span></button>
     </div>
 </div>
-
+<!---------mbile-navbar----->
+<!-- /.side-menu__block -->
+<div class="side-menu__block">
+    <div class="side-menu__block-overlay custom-cursor__overlay">
+        <div class="cursor "></div>
+        <div class="cursor-follower"></div>
+    </div>
+    <!-- /.side-menu__block-overlay -->
+    <div class="side-menu__block-inner">
+        <div class="row ">
+            <div class="col-lg-12 ">
+                <div class="logo_site ">
+                    <a href="index.html"><img src="{{asset('frontend/assets/image/home-1-logo.png')}}" alt="logo " /></a>
+                </div>
+                <div class="side-menu__block-contact ">
+                    <h2>Quick Online Consultancy Only on Few Minutes</h2>
+                    <div class="form_outer ">
+                        <form>
+                            <div class="from_group ">
+                                <input type="text" name="name" placeholder="Name " />
+                            </div>
+                            <div class="from_group ">
+                                <input type="email" name="email" placeholder="Email " />
+                            </div>
+                            <div class="from_group">
+                                <input type="text" name="phone" placeholder="Phone " />
+                            </div>
+                            <div class="from_group ">
+                                <textarea rows="4" placeholder="Share Your Thoughts"></textarea>
+                            </div>
+                            <div class="from_group ">
+                                <button  class="theme_btn tp_two" type="submit">Contact Us</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <!-- /.side-menu__block-contact -->
+                <div class="side-menu__block-contact ">
+                    <h3 class="side-menu__block__title ">Contact Us</h3>
+                    <!-- /.side-menu__block__title -->
+                    <ul class="side-menu__block-contact__list ">
+                        <li class="side-menu__block-contact__list-item ">
+                            <i class="fa fa-map-marker "></i> Rock St 12, Newyork City, USA
+                        </li>
+                        <!-- /.side-menu__block-contact__list-item -->
+                        <li class="side-menu__block-contact__list-item ">
+                            <i class="fa fa-phone "></i>
+                            <a href="tel:526-236-895-4732 ">(526) 236-895-4732</a>
+                        </li>
+                        <!-- /.side-menu__block-contact__list-item -->
+                        <li class="side-menu__block-contact__list-item ">
+                            <i class="fa fa-envelope "></i>
+                            <a href="mailto:example@mail.com ">example@mail.com</a>
+                        </li>
+                        <!-- /.side-menu__block-contact__list-item -->
+                        <li class="side-menu__block-contact__list-item ">
+                            <i class="fa fa-clock-o "></i> Week Days: 09.00 to 18.00 Sunday: Closed
+                        </li>
+                        <!-- /.side-menu__block-contact__list-item -->
+                    </ul>
+                    <!-- /.side-menu__block-contact__list -->
+                </div>
+                <!-- /.side-menu__block-contact -->
+                <p class="side-menu__block__text site-footer__copy-text "><a href="# ">corano</a> <i class="fa fa-copyright "></i> 2020 All Right Reserved</p>
+            </div>
+        </div>
+        <!-- /.side-menu__block-inner -->
+    </div>
+</div>
+<!-- /.side-menu__block -->
+<!-- /.search-popup -->
+<div class="search-popup">
+    <div class="search-popup__overlay custom-cursor__overlay">
+        <div class="cursor "></div>
+        <div class="cursor-follower "></div>
+    </div>
+    <!-- /.search-popup__overlay -->
+    <div class="search-popup__inner ">
+        <form action="# " class="search-popup__form ">
+            <input type="text" name="search" placeholder="Type here to Search.... ">
+            <button type="submit"><i class="flaticon-magnifying-glass "></i></button>
+        </form>
+    </div>
+    <!-- /.search-popup__inner -->
+</div>
+<!-- /.search-popup -->
 <!-----------------------------------script-------------------------------------->
 <script src="{{asset('frontend/assets/js/jquery.js')}}"></script>
 <script src="{{asset('frontend/assets/js/popper.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/bootstrap.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/bsnav.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/jquery-ui.js')}}"></script>
+
 <script src="{{asset('frontend/assets/js/wow.js')}}"></script>
 <script src="{{asset('frontend/assets/js/owl.js')}}"></script>
-<script src="{{asset('frontend/assets/js/swiper.min.js')}}"></script>
-<script src="{{asset('frontend/assets/js/jquery.fancybox.js')}}"></script>
+<script src="{{asset('frontend/assets/js/odometer.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/TweenMax.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/validator.min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/appear.js')}}"></script>
@@ -347,6 +405,12 @@
 <script src="{{asset('frontend/assets/js/jquery.flexslider-min.js')}}"></script>
 <script src="{{asset('frontend/assets/js/pagenav.js')}}"></script>
 <script src="{{asset('frontend/assets/js/custom.js')}}"></script>
+<script src="inc/contact.html"></script>
+<!--Google Map APi Key-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
+<script src="{{asset('frontend/assets/js/gmaps.js')}}"></script>
+<script src="{{asset('frontend/assets/js/map-script.js')}}"></script>
+<!--End Google Map APi-->
 </body>
 
 </html>

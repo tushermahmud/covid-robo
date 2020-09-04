@@ -29,6 +29,8 @@ Route::get('/about','HomeController@about')->name('about');
 Route::POST('/corona-status','HomeController@countryStatus')->name('country-status');
 Route::get('/doctor','HomeController@blogs')->name('doctor');
 Route::get('/entertainment','HomeController@entertainment')->name('entertainment');
+Route::get('/subscription','HomeController@subscription')->name('subscription');
+Route::post('/subscription/store','HomeController@subscriptionStore')->name('subscription.store');
 Route::get('/doctors/{category}','HomeController@searchByCategory')->name('searchByCategory');
 Route::get('/doctor/{doctor}','HomeController@singleBlog')->name('single-doctor');
 Route::get('/plasma','PlasmaController@index')->name('plasma');

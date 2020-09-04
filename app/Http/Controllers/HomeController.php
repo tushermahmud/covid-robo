@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use GuzzleHttp\Client;
 use GuzzleHttp\Message\Response;
 use App\Blog;
+use App\User;
+use DB;
 class HomeController extends Controller
 {
     public function __construct(){
@@ -15,7 +17,6 @@ class HomeController extends Controller
     public function index(){
         $client = new Client();
         $blogs=Blog::published()->get();
-
         $global_response=$client->request('GET', 'https://corona.lmao.ninja/v2/continents?yesterday&sort')->getBody();
         $globally=json_decode($global_response);
         return view('welcome',compact('globally','total_countries','blogs'));
@@ -53,9 +54,19 @@ class HomeController extends Controller
         return view('about',compact('globally'));
     }
     public function blogs(){
-        $empty="";
-        $blogs=Blog::published()->orderBy('created_at','asc')->paginate(3);
-        return view('blog',compact('blogs','empty'));
+        if(auth()->user()){
+            if(auth()->user()->user_type==1||auth()->user()->user_type==2||auth()->user()->user_type==3){
+                $empty="";
+                $blogs=Blog::published()->orderBy('created_at','asc')->paginate(3);
+                return view('blog',compact('blogs','empty'));
+            }
+            else{
+                return redirect('subscription');
+            }
+        }
+        else{
+            return redirect('login');
+        }
     }
     public function searchByCategory(Category $category ){
         $empty="";
@@ -65,7 +76,6 @@ class HomeController extends Controller
         return view('blog',compact('blogs','categoryName','empty'));
     }
     public function singleBlog($slug){
-
         $blogs=Blog::with('comments.replies')->where('slug',$slug)->first();
         return view('single-blog',compact('blogs'));
     }
@@ -73,7 +83,6 @@ class HomeController extends Controller
         return view('contact');
     }
     public function blogSearch(Request $request){
-
         $blogs=Blog::where('name', 'LIKE',"%{$request->search}%")->paginate(3);
         $empty="";
 
@@ -88,5 +97,19 @@ class HomeController extends Controller
     }
     public function entertainment(){
         return view('entertainment');
+    }
+    public function subscription(){
+        return view('SubscriptionPlan');
+    }
+    public function subscriptionStore(Request $request){
+        if(auth()->user()){
+            DB::table('users')
+                ->where('id', auth()->user()->id)
+                ->update(['user_type' => $request->user_type]);
+            return redirect('doctor');
+        }
+        else{
+            return redirect('login');
+        }
     }
 }

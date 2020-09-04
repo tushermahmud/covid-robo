@@ -34,6 +34,6 @@ class CreatePlasmaDonarTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('donars');
+/*        Schema::dropIfExists('donars');*/
     }
 }

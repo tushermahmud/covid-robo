@@ -245,6 +245,7 @@
                                     </div>
                                     <button type="submit" class="btn btn-primary">Submit</button>
                                     {!!Form::close()!!}
+                                    <h2>NB:Please Send Money in This Number. If Someone Tell You To send To another Number then he is a fraud. The number is given bellow (01795355849)</h2>
                                 </div>
                             </div>
                         </div>
